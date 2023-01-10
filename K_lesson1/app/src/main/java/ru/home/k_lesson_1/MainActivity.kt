@@ -70,10 +70,24 @@ class MainActivity : AppCompatActivity() {
 
 //        this.i=if(objTest.i==3) 2 else 3
 
+        //циклы
+        val dayOfWeek = listOf("s","M","T","W","TH","Fr","S")
+        //вывод списка, forEach
+for(day in dayOfWeek)
+{
+    Log.d("mylog", "$day")
+}
+dayOfWeek.forEach{
+    Log.d("mylog",it)}
 
-
-
-
+for (i in dayOfWeek.size-1 downTo 0 step 1)
+{
+    Log.d("mylog",dayOfWeek[i])
+}
+repeat(dayOfWeek.lastIndex)
+{
+    Log.d("mylog","${dayOfWeek[it]}")
+}
         val getI=objTest.i
         objTest.i =2
         this.i=2
