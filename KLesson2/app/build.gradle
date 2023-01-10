@@ -7,6 +7,10 @@ android {
     namespace 'ru.geekbraince.KLesson2'
     compileSdk 32
 
+    buildFeatures{
+        viewBinding true
+    }
+
     defaultConfig {
         applicationId "ru.geekbraince.KLesson2"
         minSdk 30
