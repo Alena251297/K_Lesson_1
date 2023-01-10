@@ -8,8 +8,11 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.google.android.material.snackbar.Snackbar
 import ru.geekbraince.KLesson2.R
 import ru.geekbraince.KLesson2.databinding.FragmentMainBinding
+import ru.geekbraince.KLesson2.domain.Weather
+import ru.geekbraince.KLesson2.viewmodel.AppState
 import ru.geekbraince.KLesson2.viewmodel.MainViewModel
 
 class MainFragment: Fragment() {
@@ -56,12 +59,43 @@ private  var _binding: FragmentMainBinding? = null
         //Во View получили ссылку на ViewModal, повесили observe на ViewModal, если у нас что-то обновится, т.е в LiveData
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
             //Получаем LiveData, вешаем observe. Если LiveData обновтся - то вызови observer Observer<Any> и в него передаем результат
-        viewModel.getLivaData().observe(viewLifecycleOwner,Observer<Any>{
-            Toast.makeText(context,"it", Toast.LENGTH_LONG).show()
+        viewModel.getLivaData().observe(viewLifecycleOwner,Observer<AppState>{
+            renderData(it)
         })
         //делаем запрос во viewModal для эмуляции запроса на сервер
         viewModel.getDataFromRemoteSource()
     }
+
+    fun renderData(appState: AppState){
+        //аналог swich case, для каждого состояния прописываем действия
+        when(appState){
+            is AppState.Error -> {
+                binding.loadingLayout.visibility = View.GONE
+                val throwable = appState.error
+                Snackbar.make(binding.mainView, "Ошибка $throwable", Snackbar.LENGTH_LONG).show()
+            }
+            AppState.Loading -> {
+                //делаем наш loading видимым
+                binding.loadingLayout.visibility = View.VISIBLE
+            }
+            is AppState.Success ->
+            {  //делаем наш loading невидимым
+                binding.loadingLayout.visibility = View.GONE
+                val weather= appState.weatherData
+                //вывод сообщения после загрузки
+                setData(weather)
+                Snackbar.make(binding.mainView, "Готово!", Snackbar.LENGTH_LONG).show()
+            }
+        }
+    }
+
+    private fun setData(weather: Weather) {
+        binding.cityName.text = weather.city.name
+        binding.cityCoordinates.text = "lat ${weather.city.lat}\n lon ${weather.city.lon}"
+        binding.feelsLikeValue.text = weather.fieldsLike.toString()
+        binding.temperatureValue.text = "${weather.temperatura}"
+    }
+
 
     //когда конец работы приложения, обнуляем _binding
     override fun onDestroy() {
