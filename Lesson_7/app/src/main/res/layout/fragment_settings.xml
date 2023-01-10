@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+  <androidx.appcompat.widget.SwitchCompat
+      android:id="@+id/switchForBackStack"
+      android:layout_width="match_parent"
+      android:text="@string/back_stack"
+      android:textSize="@dimen/LableFragment"
+      android:layout_height="wrap_content"/>
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/radionButtonAdd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text = "@string/add"/>
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/radionButtonReplace"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text = "@string/replace"/>
+    </RadioGroup>
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchBackAsRemove"
+        android:layout_width="match_parent"
+        android:text="@string/remove"
+        android:textSize="@dimen/LableFragment"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/switchDeleteBeforeAdd"
+        android:layout_width="match_parent"
+        android:text="@string/delete_before_add"
+        android:textSize="@dimen/LableFragment"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

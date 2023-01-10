@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/category_svgrepo_com"
+            android:title="@string/libre" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/blue_whale_svgrepo_com"
+            android:title="@string/animal"
+           />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/thai_pattern_architecture_12_svgrepo_com"
+            android:title="@string/natural" />
+    </group>
+</menu>

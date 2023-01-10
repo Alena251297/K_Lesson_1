@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Art</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="sing_in">Sign Out</string>
+    <string name="sing_out">Sign Int</string>
+    <string name="them1">Тема 1</string>
+    <string name="them2">Тема 2</string>
+    <string name="them3">Тема 3</string>
+    <string name="them4">Тема 4</string>
+</resources>

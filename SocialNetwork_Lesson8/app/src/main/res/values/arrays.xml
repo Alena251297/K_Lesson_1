@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    <string-array name="test_title">-->
+<!--        <item>1</item>-->
+<!--        <item>2</item>-->
+<!--        <item>3</item>-->
+<!--        <item>1</item>-->
+<!--        <item>2</item>-->
+<!--        <item>3</item>-->
+<!--        <item>1</item>-->
+<!--        <item>2</item>-->
+<!--        <item>3</item>-->
+<!--        <item>1</item>-->
+<!--        <item>2</item>-->
+<!--        <item>3</item>-->
+<!--        <item>1</item>-->
+<!--        <item>2</item>-->
+<!--        <item>3</item>-->
+<!--        <item>1</item>-->
+<!--        <item>2</item>-->
+<!--        <item>3</item>-->
+<!--        <item>1</item>-->
+<!--        <item>2</item>-->
+<!--        <item>3</item>-->
+<!--        <item>1</item>-->
+<!--        <item>2</item>-->
+<!--        <item>3</item>-->
+<!--        <item>1</item>-->
+<!--        <item>2</item>-->
+<!--        <item>3</item>-->
+<!--        <item>1</item>-->
+<!--        <item>2</item>-->
+<!--        <item>3</item>-->
+<!--    </string-array>-->
+    <string-array name="title">
+        <item>красивая картинка 1</item>
+        <item>красивая картинка 2</item>
+        <item>красивая картинка 3</item>
+        <item>красивая картинка 4</item>
+        <item>красивая картинка 5</item>
+        <item>красивая картинка 6</item>
+        <item>красивая картинка 7</item>
+        <item>красивая картинка 8</item>
+        <item>красивая картинка 9</item>
+        <item>красивая картинка 10</item>
+    </string-array>
+    <string-array name="description">
+        <item> описание красивой картинки 1</item>
+        <item>описание красивой картинки  2</item>
+        <item>описание красивой картинки  3</item>
+        <item>описание красивой картинки  4</item>
+        <item>описание красивой картинки  5</item>
+        <item>описание красивой картинки  6</item>
+        <item>описание красивой картинки  7</item>
+        <item>описание красивой картинки  8</item>
+        <item>описание красивой картинки  9</item>
+        <item>описание красивой картинки  10</item>
+    </string-array>
+    <array name="pictures">
+        <item>@drawable/natural1</item>
+        <item>@drawable/natural2</item>
+        <item>@drawable/natural3</item>
+        <item>@drawable/natural4</item>
+        <item>@drawable/natural5</item>
+        <item>@drawable/natural6</item>
+        <item>@drawable/natural7</item>
+        <item>@drawable/natural8</item>
+        <item>@drawable/natural9</item>
+        <item>@drawable/natural10</item>
+    </array>
+</resources>

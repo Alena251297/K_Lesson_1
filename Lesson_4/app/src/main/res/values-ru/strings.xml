@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Lesson v30</string>
+    <string name="languageLabel">Язык</string>
+    <string name="language">Ру </string>
+    <string name="textNightModeLabel">Ночной режим</string>
+    <string name="DesityLable">Плостность</string>
+    <string name="VersionLabel">Версия</string>
+
+
+
+
+
+</resources>

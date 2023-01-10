@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Art Network</string>
+    <string name="Add">Добавить</string>
+    <string name="Clear">Очистить</string>
+    <string name="Delete">Удалить</string>
+    <string name="Update">Редактировать</string>
+</resources>

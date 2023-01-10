@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "330297127615",
+    "project_id": "lesson-10-c4940",
+    "storage_bucket": "lesson-10-c4940.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:330297127615:android:b129683865426cfff14c0a",
+        "android_client_info": {
+          "package_name": "ru.lesson.lesson_10"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "330297127615-51mlhuhc4r2u6ortv542b38sc5911mt4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAM0txAf--UFjC7rmJ17aIC0N_0tlyuidc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "330297127615-51mlhuhc4r2u6ortv542b38sc5911mt4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

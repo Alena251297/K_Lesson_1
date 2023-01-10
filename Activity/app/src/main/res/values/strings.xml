@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Activity</string>
+    <string name="life_activity">Жизненный цикл активити</string>
+    <dimen name="size">18sp</dimen>
+</resources>

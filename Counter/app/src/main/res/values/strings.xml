@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Счетчики</string>
+    <string name="Counter1">Первый счетчик</string>
+    <string name="Counter2">Второй счетчик</string>
+    <string name="Counter3">Третий счетчик</string>
+    <string name="Counter4">Четвертый счетчик</string>
+    <string name="start">0</string>
+    <string name="hello">Hello</string>
+    <dimen name = "size_1">25sp</dimen>
+    <dimen name = "size_2">16sp</dimen>
+</resources>

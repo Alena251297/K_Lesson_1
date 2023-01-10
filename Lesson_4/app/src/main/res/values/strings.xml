@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Lesson v30</string>
+    <string name="languageLabel">Language Label</string>
+
+    <string name="languageLabel_java">Language Label_java</string>
+    <string name="language_java">Eng_java </string>
+
+    <string name="language">Eng </string>
+
+    <string name="DesityLable">Desity Lable </string>
+    <string name="Desity">Desity</string>
+    <string name="textNightModeLabel">Night Mode Label</string>
+    <string name="textNightMode">Night Mode</string>
+    <string name="Version">Version</string>
+    <string name="VersionLabel">Version Label</string>
+</resources>

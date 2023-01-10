@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="cities">
+        <item>Москва</item>
+        <item>Воронеж</item>
+        <item>Санкт-Петербург</item>
+        <item>Орел</item>
+        <item>Белгород</item>
+        <item>Курск</item>
+    </string-array>
+    <integer-array name="coat_of_arms_image">
+        <item>@drawable/moscou</item>
+        <item>@drawable/voronezh</item>
+        <item>@drawable/sanktpeterburg</item>
+        <item>@drawable/orel</item>
+        <item>@drawable/belgorod</item>
+        <item>@drawable/kyrsk</item>
+    </integer-array>
+</resources>

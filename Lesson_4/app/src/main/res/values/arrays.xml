@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="version_names">
+        <item>Nougat</item>
+        <item>Orea</item>
+        <item>Pie</item>
+    </string-array>
+
+    <integer-array name="version_icons">
+        <item>@drawable/nougat</item>
+        <item>@drawable/orea</item>
+        <item>@drawable/pie</item>
+    </integer-array>
+</resources>
