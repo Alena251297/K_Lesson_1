@@ -94,6 +94,7 @@ private  var _binding: FragmentMainBinding? = null
         binding.cityCoordinates.text = "lat ${weather.city.lat}\n lon ${weather.city.lon}"
         binding.feelsLikeValue.text = weather.fieldsLike.toString()
         binding.temperatureValue.text = "${weather.temperatura}"
+
     }
 
 
