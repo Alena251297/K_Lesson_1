@@ -8,6 +8,7 @@ class Lesson3 {
 
     fun mainFirstPart()
     {
+
       var bar= AppCompatActivity().supportActionBar
         var menu= AppCompatActivity().menuInflater
       var application:Application= AppCompatActivity().application
