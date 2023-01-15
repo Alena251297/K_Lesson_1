@@ -15,7 +15,7 @@ if(savedInstanceState==null)
             .replace(R.id.fragment_conteiner, MainFragment.newInstance()).commit()
 
         val lesson = Lesson3()
-        lesson.mainSecondPart()
-        Log.d("mylogs1","${lesson.mainSecondPart()}")
+        lesson.mainSecondPart(this)
+        Log.d("mylogs1","${lesson.mainSecondPart(this)}")
     }
 }
