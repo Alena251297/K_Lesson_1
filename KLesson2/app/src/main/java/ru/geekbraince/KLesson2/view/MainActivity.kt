@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import ru.geekbraince.KLesson2.R
 import ru.geekbraince.KLesson2.lesson4.LambdaJava
+import ru.geekbraince.KLesson2.lesson4.LambdaJava.main
+import ru.geekbraince.KLesson2.lesson4.LambdaKotlin
 import ru.geekbraince.KLesson2.view.main.MainFragment
 
 class MainActivity : AppCompatActivity() {
@@ -19,6 +21,8 @@ if(savedInstanceState==null)
 //        Log.d("mylogs1","${lesson.mainSecondPart(this)}")
 
 //вызвали наш main
-LambdaJava.main()
+        LambdaKotlin().main()
+
+//        LambdaKotlin.main()
     }
 }
