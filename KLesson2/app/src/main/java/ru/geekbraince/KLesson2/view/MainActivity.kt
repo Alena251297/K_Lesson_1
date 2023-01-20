@@ -3,6 +3,7 @@ package ru.geekbraince.KLesson2.view
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import ru.geekbraince.KLesson2.R
+import ru.geekbraince.KLesson2.lesson4.LambdaJava
 import ru.geekbraince.KLesson2.view.main.MainFragment
 
 class MainActivity : AppCompatActivity() {
@@ -17,6 +18,7 @@ if(savedInstanceState==null)
 //        lesson.mainSecondPart(this)
 //        Log.d("mylogs1","${lesson.mainSecondPart(this)}")
 
-
+//вызвали наш main
+LambdaJava.main()
     }
 }
