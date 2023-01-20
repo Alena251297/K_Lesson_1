@@ -15,10 +15,31 @@ class LambdaKotlin {
         Log.d("mylogs", field1)
         Log.d("mylogs", l1())
         Log.d("mylogs", l2)*/
-       // printMy(valAnonim)
+       // printMy(valAnonim) valAnonim передаем функцию в качестве аргумента
       //  printMy(valLambda)
-
+        //3я часть
+    val l3={int1:Int,int2:Int -> //слева - параметры которые передаются, справа - выполнение,  //последняя строка - то что возвращается
+    Log.d("mylogs", " 1")
+   }
+      val l4=l3(1,2) //передам значения в лямбду
+        //4я часть
+            val people :List<Person> = listOf(Person("name1",10),Person("name2",20))
+            people.forEach({person:Person -> Log.d("mylogs","${person.name}")})
+            people.forEach({person:Person -> print(person)} )
+            people.forEach({person -> Log.d("mylogs","${person.name}")})
+            people.forEach{(Log.d("mylogs","${it.name}"))}
+            people.forEach{it.print1()}
+            people.forEach{print(it)}
     }
+    data class Person(val name:String, val age:Int)
+    fun print(person:Person){
+        Log.d("mylogs","${person.name} ${person.age}")
+    }
+    fun Person.print1(){
+        Log.d("mylogs","${this.name} ${this.age}")
+    }
+
+
     val valAnonim = fun (int1:Int,int2:Int):String{ //анонимная функция
         Log.d("mylogs", " Зашли valAnonim")
         return "valAnonim"
