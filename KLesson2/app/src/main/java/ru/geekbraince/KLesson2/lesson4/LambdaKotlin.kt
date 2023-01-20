@@ -24,22 +24,21 @@ class LambdaKotlin {
       val l4=l3(1,2) //передам значения в лямбду
         //4я часть
             val people :List<Person> = listOf(Person("name1",10),Person("name2",20))
-            people.forEach({person:Person -> Log.d("mylogs","${person.name}")})
-            people.forEach({person:Person -> print(person)} )
-            people.forEach({person -> Log.d("mylogs","${person.name}")})
-            people.forEach{(Log.d("mylogs","${it.name}"))}
-            people.forEach{it.print1()}
+//            people.forEach({person:Person -> Log.d("mylogs","${person.name}")})
+//            people.forEach({person:Person -> print(person)} )
+//            people.forEach({person -> Log.d("mylogs","${person.name}")})
+//            people.forEach{(Log.d("mylogs","${it.name}"))}
+            people.forEach{it.print2()}
             people.forEach{print(it)}
     }
-    data class Person(val name:String, val age:Int)
-    fun print(person:Person){
+    data class Person(var name:String, val age:Int)
+    fun print1(person:Person){
         Log.d("mylogs","${person.name} ${person.age}")
     }
-    fun Person.print1(){
+    fun Person.print2():String{
         Log.d("mylogs","${this.name} ${this.age}")
+        return " return "
     }
-
-
     val valAnonim = fun (int1:Int,int2:Int):String{ //анонимная функция
         Log.d("mylogs", " Зашли valAnonim")
         return "valAnonim"
@@ -52,4 +51,5 @@ class LambdaKotlin {
         Log.d("mylogs", " Зашли printMy")
         Log.d("mylogs", fun1(1,2))
     }
-}
+
+   }
