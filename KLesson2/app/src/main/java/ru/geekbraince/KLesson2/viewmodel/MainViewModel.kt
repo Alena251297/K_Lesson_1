@@ -17,16 +17,15 @@ ViewModel() {
     //liveDataToObserve - подписываем наш Observer
 fun  getLivaData()=liveDataToObserve
 
-    fun getWeatherFromLocalSourceWorld(){
-        getDataFromLocalSource(false)
-    }
-    fun getWeatherFromLocalSourceRus(){
-        getDataFromLocalSource(true)
-    }
+    fun getWeatherFromLocalSourceWorld()= getDataFromLocalSource(false)
+
+    fun getWeatherFromLocalSourceRus() = getDataFromLocalSource(true)
+
 
     //эмулируем запрос на сервер. в потоке
     fun getDataFromLocalSource(isRussian:Boolean){
         //пока состояние загрузки
+
         liveDataToObserve.postValue(AppState.Loading)
         //старт потока
 Thread{

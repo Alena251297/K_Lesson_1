@@ -12,10 +12,7 @@ data class Weather(val city:City= getDefaultCity(),
 private fun getDefaultCity() = City("Москва", 55.0, 37.0)
 
 //список городов
-fun getWorldCities():List<Weather>
-{
-    //неизменяемые списки
-    return listOf(
+fun getWorldCities()=listOf(
         Weather(City("Лондон", 51.5085300, -0.1257400), 1, 2),
         Weather(City("Токио", 35.6895000, 139.6917100), 3, 4),
         Weather(City("Париж", 48.8534100, 2.3488000), 5, 6),
@@ -25,11 +22,9 @@ fun getWorldCities():List<Weather>
         Weather(City("Стамбул", 41.0082376, 28.97835889999999), 13, 14),
         Weather(City("Вашингтон", 38.9071923, -77.03687070000001), 15, 16),
         Weather(City("Киев", 50.4501, 30.523400000000038), 17, 18),
-        Weather(City("Пекин", 39.90419989999999, 116.40739630000007), 19, 20)
-    )
-}
-fun getRussianCities(): List<Weather> {
-    return listOf(
+        Weather(City("Пекин", 39.90419989999999, 116.40739630000007), 19, 20))
+
+fun getRussianCities()= listOf(
         Weather(City("Москва", 55.755826, 37.617299900000035), 1, 2),
         Weather(City("Санкт-Петербург", 59.9342802, 30.335098600000038), 3, 3),
         Weather(City("Новосибирск", 55.00835259999999, 82.93573270000002), 5, 6),
@@ -42,4 +37,4 @@ fun getRussianCities(): List<Weather> {
         Weather(City("Ростов-на-Дону", 47.2357137, 39.701505), 17, 18),
         Weather(City("Уфа", 54.7387621, 55.972055400000045), 19, 20)
     )
-}
+

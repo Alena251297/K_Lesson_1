@@ -55,8 +55,11 @@ private  var _binding: FragmentDetailsBinding? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val weather = (arguments?.getParcelable<Weather>(BUNDELE_WEATHER_KEY))?:Weather()
-        setData(weather)
+        arguments?.let {
+            val weather = (it?.getParcelable<Weather>(BUNDELE_WEATHER_KEY))?:Weather()
+            setData(weather)
+        }
+
    }
 
 //    fun renderData(appState: AppState){
@@ -83,14 +86,15 @@ private  var _binding: FragmentDetailsBinding? = null
 //    }
 
     private fun setData(weather: Weather) {
-        binding.cityName.text = weather.city.name
-        binding.cityCoordinates.text = "lat ${weather.city.lat}\n lon ${weather.city.lon}"
-        binding.feelsLikeValue.text = weather.fieldsLike.toString()
-        binding.temperatureValue.text = "${weather.temperatura}"
-
+        with(binding) {
+            with(weather){
+                cityName.text = city.name
+                cityCoordinates.text = "lat ${city.lat}\n lon ${city.lon}"
+                feelsLikeValue.text = fieldsLike.toString()
+                temperatureValue.text = "${temperatura}"
+            }
+        }
     }
-
-
     //когда конец работы приложения, обнуляем _binding
     override fun onDestroy() {
         super.onDestroy()

@@ -23,9 +23,11 @@ private  var _binding: FragmentMainBinding? = null
     //при создании свойства переопределяется геттер и сеттер
     get(){return _binding!!}
     //реализуем view model
-
+    //Во View получили ссылку на ViewModal, повесили observe на ViewModal, если у нас что-то обновится, т.е в LiveData
     //прописываем ссылку на ViewModel
-    private lateinit var viewModel:MainViewModel
+    private  val viewModel: MainViewModel by lazy{
+        ViewModelProvider(this).get(MainViewModel::class.java)
+    }
     private var isDataSetRus:Boolean =true
 private val adapter = MainFragmentAdapter()
 
@@ -54,24 +56,25 @@ private val adapter = MainFragmentAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.mainFragmentRecyclerView.adapter =adapter
-        adapter.setOnItemViewClickListener(this)
-        binding.mainFragmentFAB.setOnClickListener(object : View.OnClickListener{ //FAB кнопка
-            override fun onClick(v: View?) {
-               isDataSetRus = !isDataSetRus
-              if(isDataSetRus)
-              {
-                  viewModel.getWeatherFromLocalSourceRus()
-                  binding.mainFragmentFAB.setImageResource(R.drawable.ic_russian)
-              }else {viewModel.getWeatherFromLocalSourceWorld()
-                  binding.mainFragmentFAB.setImageResource(R.drawable.ic_eart)}
+        with(binding){
+            mainFragmentRecyclerView.adapter =adapter
+            adapter.setOnItemViewClickListener(this@MainFragment) //FIXME
+            //он клилк листнер через лямбда
+            mainFragmentFAB.setOnClickListener {
+                isDataSetRus = !isDataSetRus
+                if (isDataSetRus) {
+                    viewModel.getWeatherFromLocalSourceRus()
+                   mainFragmentFAB.setImageResource(R.drawable.ic_russian)
+                } else {
+                    viewModel.getWeatherFromLocalSourceWorld()
+                    mainFragmentFAB.setImageResource(R.drawable.ic_eart)
+                }
             }
+        }
 
-        })
         //создали viewModel, viewLifecycleOwner - следит за жизненным циклом activity
 
-        //Во View получили ссылку на ViewModal, повесили observe на ViewModal, если у нас что-то обновится, т.е в LiveData
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+
             //Получаем LiveData, вешаем observe. Если LiveData обновтся - то вызови observer Observer<Any> и в него передаем результат
         viewModel.getLivaData()
             .observe(viewLifecycleOwner,Observer<AppState>{appState:AppState->
@@ -83,25 +86,28 @@ private val adapter = MainFragmentAdapter()
 
     fun renderData(appState: AppState){
         //аналог swich case, для каждого состояния прописываем действия
-        when(appState){
-            is AppState.Error -> {
-                binding.mainFragmentLoadingLayout.visibility = View.GONE
-                val throwable = appState.error
-                Snackbar.make(binding.root, "Ошибка $throwable", Snackbar.LENGTH_LONG).show()
-            }
-            AppState.Loading -> {
-                //делаем наш loading видимым
-                binding.mainFragmentLoadingLayout.visibility = View.VISIBLE
-            }
-            is AppState.Success ->
-            {  //делаем наш loading невидимым
-                binding.mainFragmentLoadingLayout.visibility = View.GONE
-                val weather= appState.weatherData
-                //вывод сообщения после загрузки
-                adapter.setWeather(weather)
-              //  Snackbar.make(binding.root, "Готово!", Snackbar.LENGTH_LONG).show()
+        with(binding){
+            when(appState){
+                is AppState.Error -> {
+                    mainFragmentLoadingLayout.visibility = View.GONE
+                    val throwable = appState.error
+                    Snackbar.make(binding.root, "Ошибка $throwable", Snackbar.LENGTH_LONG).show()
+                }
+                AppState.Loading -> {
+                    //делаем наш loading видимым
+                    mainFragmentLoadingLayout.visibility = View.VISIBLE
+                }
+                is AppState.Success ->
+                {  //делаем наш loading невидимым
+                    mainFragmentLoadingLayout.visibility = View.GONE
+                    val weather= appState.weatherData
+                    //вывод сообщения после загрузки
+                    adapter.setWeather(weather)
+                    //  Snackbar.make(binding.root, "Готово!", Snackbar.LENGTH_LONG).show()
+                }
             }
         }
+
     }
 
 //    private fun setData(weather: List<Weather>) {

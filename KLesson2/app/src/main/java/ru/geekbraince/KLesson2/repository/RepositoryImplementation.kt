@@ -5,20 +5,12 @@ import ru.geekbraince.KLesson2.domain.getRussianCities
 import ru.geekbraince.KLesson2.domain.getWorldCities
 
 class RepositoryImplementation: Repository {
-    override fun getWeatherFromRemoteSource(): Weather {
-        return Weather()
-    }
+    override fun getWeatherFromRemoteSource() = Weather()
 
-    override fun getWeatherFromLocalSource(): Weather {
-       return Weather()
-    }
+    override fun getWeatherFromLocalSource()=Weather()
 //имплиментировала наши методы со списками
-    override fun getWeatherFromLocalStorageRus(): List<Weather> {
-        return  getRussianCities()
-    }
+    override fun getWeatherFromLocalStorageRus() = getRussianCities()
 
-    override fun getWeatherFromLocalStorageWorld(): List<Weather> {
-       return getWorldCities()
-    }
+    override fun getWeatherFromLocalStorageWorld() = getWorldCities()
 
 }
