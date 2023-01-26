@@ -1,21 +1,30 @@
-package ru.geekbraince.KLesson2.view.main
+package ru.geekbraince.KLesson2.view.details
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import com.google.android.material.snackbar.Snackbar
-import ru.geekbraince.KLesson2.R
 import ru.geekbraince.KLesson2.databinding.FragmentDetailsBinding
-import ru.geekbraince.KLesson2.databinding.FragmentMainBinding
 import ru.geekbraince.KLesson2.domain.Weather
-import ru.geekbraince.KLesson2.viewmodel.AppState
-import ru.geekbraince.KLesson2.viewmodel.MainViewModel
+import ru.geekbraince.KLesson2.repository.WeatherDTO
+import ru.geekbraince.KLesson2.repository.WeatherLoader
+import ru.geekbraince.KLesson2.repository.WeatherLoaderListener
 
-class DetailsFragment: Fragment() {
+class DetailsFragment: Fragment(),WeatherLoaderListener {
+
+
+//    val listener = object: WeatherLoaderListener{
+//        override fun onLoader(weatherDTO: WeatherDTO) {
+//            TODO("Not yet implemented")
+//        }
+//
+//        override fun onFailed(throwable: Throwable) {
+//            TODO("Not yet implemented")
+//        }
+//
+//    }
+
 private  var _binding: FragmentDetailsBinding? = null
     private val binding: FragmentDetailsBinding
       get(){return _binding!!}
@@ -25,7 +34,7 @@ private  var _binding: FragmentDetailsBinding? = null
 //        fun newInstance():Fragment{
 //            return MainFragment()}
         //возыращает новый фрагмент
-        fun newInstance(bundle: Bundle):DetailsFragment{
+        fun newInstance(bundle: Bundle): DetailsFragment {
             val fragment = DetailsFragment()
             fragment.arguments = bundle
             return fragment
@@ -42,13 +51,59 @@ private  var _binding: FragmentDetailsBinding? = null
 //        binding.textview.text="test"
 //        return inflater.inflate(R.layout.fragment_main, container, false)
     }
+
+    val localWeather:Weather by lazy{
+        (arguments?.getParcelable(BUNDELE_WEATHER_KEY))?: Weather()
+
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        arguments?.let {
-            val weather = (it?.getParcelable<Weather>(BUNDELE_WEATHER_KEY))?:Weather()
-            setData(weather)
+        WeatherLoader(this,localWeather.city.lat,localWeather.city.lon).loadWeather()
         }
-   }
+
+   private fun showWeather(weatherDTO: WeatherDTO) {
+
+               with(binding) {
+                with(weatherDTO){
+                cityName.text = localWeather.city.name
+                cityCoordinates.text = "lat ${localWeather.city.lat}\n lon ${localWeather.city.lon}"
+                feelsLikeValue.text = weatherDTO.fact.feels_like.toString()
+                temperatureValue.text = "${fact.temp}"
+                weatherCondition.text = "${fact.condition}"
+            }
+        }
+    }
+    //когда конец работы приложения, обнуляем _binding
+    override fun onDestroy() {
+        super.onDestroy()
+        //чтобы не было утечки памяти
+        _binding = null
+    }
+
+
+    override fun onLoader(weatherDTO: WeatherDTO) {
+        showWeather(weatherDTO)
+    }
+
+    override fun onFailed(throwable: Throwable) {
+        //вывести в случае неудачи
+        TODO("Not yet implemented")
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
 //    fun renderData(appState: AppState){
 //
 //        when(appState){
@@ -71,20 +126,3 @@ private  var _binding: FragmentDetailsBinding? = null
 //            }
 //        }
 //    }
-    private fun setData(weather: Weather) {
-        with(binding) {
-            with(weather){
-                cityName.text = city.name
-                cityCoordinates.text = "lat ${city.lat}\n lon ${city.lon}"
-                feelsLikeValue.text = fieldsLike.toString()
-                temperatureValue.text = "${temperatura}"
-            }
-        }
-    }
-    //когда конец работы приложения, обнуляем _binding
-    override fun onDestroy() {
-        super.onDestroy()
-        //чтобы не было утечки памяти
-        _binding = null
-    }
-}

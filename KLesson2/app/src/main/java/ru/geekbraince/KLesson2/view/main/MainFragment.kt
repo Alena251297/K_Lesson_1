@@ -12,6 +12,7 @@ import ru.geekbraince.KLesson2.R
 import ru.geekbraince.KLesson2.databinding.FragmentMainBinding
 import ru.geekbraince.KLesson2.domain.Weather
 import ru.geekbraince.KLesson2.view.OnItemViewClickListener
+import ru.geekbraince.KLesson2.view.details.DetailsFragment
 import ru.geekbraince.KLesson2.viewmodel.AppState
 import ru.geekbraince.KLesson2.viewmodel.MainViewModel
 
@@ -130,7 +131,7 @@ private val adapter = MainFragmentAdapter()
         val bundle = Bundle()
         bundle.putParcelable(DetailsFragment.BUNDELE_WEATHER_KEY,weather)
         requireActivity().supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_conteiner,DetailsFragment.newInstance(bundle)) // или add. c add не работает
+            .replace(R.id.fragment_conteiner, DetailsFragment.newInstance(bundle)) // или add. c add не работает
             .addToBackStack("")
             .commit()
     }
