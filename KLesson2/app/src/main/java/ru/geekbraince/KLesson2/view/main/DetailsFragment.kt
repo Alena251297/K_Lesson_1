@@ -16,22 +16,15 @@ import ru.geekbraince.KLesson2.viewmodel.AppState
 import ru.geekbraince.KLesson2.viewmodel.MainViewModel
 
 class DetailsFragment: Fragment() {
-
-
 private  var _binding: FragmentDetailsBinding? = null
     private val binding: FragmentDetailsBinding
       get(){return _binding!!}
-
-
-
-
     companion object
     {
         //обе записи идентичны, создает экземпляр класса, фабричный метод
 //        fun newInstance():Fragment{
 //            return MainFragment()}
         //возыращает новый фрагмент
-
         fun newInstance(bundle: Bundle):DetailsFragment{
             val fragment = DetailsFragment()
             fragment.arguments = bundle
@@ -39,29 +32,23 @@ private  var _binding: FragmentDetailsBinding? = null
         }
         const val BUNDELE_WEATHER_KEY = "KEY"
     }
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-
         _binding = FragmentDetailsBinding.inflate(inflater, container, false)
         return binding.root
 //        binding.textview.text="test"
 //        return inflater.inflate(R.layout.fragment_main, container, false)
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         arguments?.let {
             val weather = (it?.getParcelable<Weather>(BUNDELE_WEATHER_KEY))?:Weather()
             setData(weather)
         }
-
    }
-
 //    fun renderData(appState: AppState){
 //
 //        when(appState){
@@ -84,7 +71,6 @@ private  var _binding: FragmentDetailsBinding? = null
 //            }
 //        }
 //    }
-
     private fun setData(weather: Weather) {
         with(binding) {
             with(weather){
@@ -101,5 +87,4 @@ private  var _binding: FragmentDetailsBinding? = null
         //чтобы не было утечки памяти
         _binding = null
     }
-
-    }
+}
